@@ -51,7 +51,6 @@ Soldado :: Soldado() {
 
 }
 Soldado :: ~Soldado() {
-	
 }
 void Soldado::setSalud(int S) {
 	salud = S;

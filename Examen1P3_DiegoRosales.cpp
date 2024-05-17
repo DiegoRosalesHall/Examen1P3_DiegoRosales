@@ -1,8 +1,20 @@
 #include <iostream>
 #include "Soldado.h"
+
 using namespace std;
+void imprimirSoldado(Soldado *sold) {
+	cout << "Tipo: " << sold->getTipo() << endl;
+	cout << "Daño: " << sold->getDanio() << endl;
+	cout << "Velolcidad: " << sold->getVelocidad() << endl;
+	cout << "Fuerza: " << sold->getFuerza() << "%" << endl;
+	cout << "Salud: " << sold->getSalud() << endl;
+	cout << "Ataque 1:" << sold->getAtaque1() << endl;
+	cout << "Ataque 2:" << sold->getAtaque2() << endl;
+	cout << endl;
+}
 void ejercicio1() {
-	Soldado soldado1(), soldado2();
+	Soldado *soldado1 = new Soldado();
+	Soldado *soldado2 = new Soldado();
 	int opcion_menu;
 	while (true) {
 		cout << "---- Menu ----" << endl;
@@ -15,10 +27,16 @@ void ejercicio1() {
 		cin >> opcion_menu;
 		cout << endl;
 		if (opcion_menu == 1) {
-	
+			soldado1->generarSoldadoAleatorio();
+			soldado2->generarSoldadoAleatorio();
+			cout << "Has generados correctamente" << endl;
 		}
 		else if (opcion_menu == 2) {
-
+			cout << "Soldado 1" << endl;
+			imprimirSoldado(soldado1);
+			cout << "Soldado 2" << endl;
+			imprimirSoldado(soldado2);
+			
 		}
 		else if (opcion_menu == 3) {
 
@@ -32,7 +50,9 @@ void ejercicio1() {
 		}
 	}
 }
-void menu() {
+
+	void menu() {
+		
 	int opcion;
 	while (true) {
 		cout << "---- Menu ----" << endl;
@@ -52,15 +72,10 @@ void menu() {
 	}
 }
 
+
 int main()
 {
-	int cont = 0;
-	srand(time(0));
-	while (cont < 20) {
-		int rifaTipo;
-		rifaTipo = rand() % 2 + 1;
-		cout << rifaTipo << endl;
-		cont++;
-	}
+	setlocale(LC_ALL, "spanish");
+	menu();
 	return 0;
 }

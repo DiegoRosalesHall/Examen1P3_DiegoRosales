@@ -4,16 +4,23 @@
 using namespace std;
 class Soldado {
 private:
+	int danio = 0;
+	string tipo_soldado = "";
+	int velocidad = 0;
+	double fuerza = 0;
+	double salud = 0;
+	string ataque1 = "";
+	string ataque2 = "";
+public:
+	string getTipo();
+	int getDanio();
+	int getVelocidad();
+	double getFuerza();
+	double getSalud();
+	string getAtaque1();
+	string getAtaque2();
 	int atacar();
-	Soldado generarSoldadoAleatorio();
+	void generarSoldadoAleatorio();
 	Soldado();
 	~Soldado();
-public:
-	int danio;
-	string tipo_soldado;
-	int velocidad;
-	double fuerza;
-	double salud;
-	string ataque1;
-	string ataque2;
 };

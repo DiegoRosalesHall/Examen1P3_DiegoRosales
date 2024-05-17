@@ -11,7 +11,12 @@ private:
 	double salud = 0;
 	string ataque1 = "";
 	string ataque2 = "";
+	int constanteAtaque1 = 0;
+	int constanteAtaque2 = 0;
 public:
+	void setSalud(int);
+	int getAtaqueTotal1();
+	int getAtaqueTotal2();
 	string getTipo();
 	int getDanio();
 	int getVelocidad();
@@ -19,7 +24,7 @@ public:
 	double getSalud();
 	string getAtaque1();
 	string getAtaque2();
-	int atacar();
+	double atacar(Soldado*);
 	void generarSoldadoAleatorio();
 	Soldado();
 	~Soldado();

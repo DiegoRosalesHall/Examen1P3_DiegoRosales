@@ -2,11 +2,15 @@
 #include <String>
 #include <stdlib.h>
 #include <time.h>
-int Soldado :: atacar() {
-	return 0;
+double Soldado :: atacar(Soldado *sold2) {
+	double fuerzaReal = fuerza / 100;
+	int totalAtaque1 = danio + velocidad + constanteAtaque1;
+	int totalAtaque2 = danio + velocidad + constanteAtaque2;
+	double ataqueTotal = (totalAtaque1 + totalAtaque2) * fuerzaReal;
+	sold2->setSalud(sold2->getSalud() - ataqueTotal);
+	return ataqueTotal;
 }
 void Soldado::generarSoldadoAleatorio() {
-	srand(time(NULL));
 	int rifaTipo;
 	rifaTipo = rand() % 3 + 1;
 	if (rifaTipo == 1) {
@@ -17,6 +21,8 @@ void Soldado::generarSoldadoAleatorio() {
 		salud = 100;
 		ataque1 = "Bola de Fuego";
 		ataque2 = "Volcán";
+		constanteAtaque1 = 10;
+		constanteAtaque2 = 5;
 	}
 	else if (rifaTipo == 2) {
 		tipo_soldado = "Naval";
@@ -26,6 +32,8 @@ void Soldado::generarSoldadoAleatorio() {
 		salud = 100;
 		ataque1 = "Avalancha";
 		ataque2 = "Tsunami";	
+		constanteAtaque1 = 8;
+		constanteAtaque2 = 12;
 	}
 	else if (rifaTipo == 3) {
 		tipo_soldado = "Army";
@@ -35,12 +43,18 @@ void Soldado::generarSoldadoAleatorio() {
 		salud = 100;
 		ataque1 = "Contaminación";
 		ataque2 = "Derrumbe";	
+		constanteAtaque1 = 7;
+		constanteAtaque2 = 15;
 	}
 }
 Soldado :: Soldado() {
 
 }
 Soldado :: ~Soldado() {
+	
+}
+void Soldado::setSalud(int S) {
+	salud = S;
 }
 string Soldado::getTipo() {
 	return tipo_soldado;
@@ -62,5 +76,11 @@ string Soldado::getAtaque1() {
 }
 string Soldado::getAtaque2() {
 	return ataque2;
+}
+int Soldado::getAtaqueTotal1() {
+	return danio + velocidad + constanteAtaque1;
+}
+int Soldado::getAtaqueTotal2() {
+	return danio + velocidad + constanteAtaque2;
 }
 
